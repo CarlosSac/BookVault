@@ -68,8 +68,11 @@ list second screen here]
 
 ## Wireframes
 
-[Add picture of your hand sketched wireframes in this section]
 <img src="wireframes/wireframe.png" width=600>
+<img src="wireframes/wireframe-library.png" width=600>
+<img src="wireframes/wireframe-wishlist.png" width=600>
+<img src="wireframes/wireframe-addbook.png" width=600>
+<img src="wireframes/wireframe-borrow.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
