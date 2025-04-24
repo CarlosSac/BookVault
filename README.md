@@ -36,39 +36,48 @@ An app to easily catalog personal book collections using ISBN scanning, manage r
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can view a list of books in their library
+* User can add a new book (title, author, page count, current page)
+* User can edit an existing book’s details
+* User can track reading progress (current page vs. total pages)
+* User can delete a book from their library
+* User sees an empty state when there are no books
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can add personal notes to a book
+* User can search or filter books
+* User can organize books into custom shelves or categories
+* User can track books they wish to read (wishlist)
+* User can track books they have loaned out
 
 ### 2. Screen Archetypes
 
-- [ ] [list first screen here]
-* [list associated required story here]
-* ...
-list second screen here]
-* [list associated required story here]
-* ...
+- [x] Library (Book List)
+  * User can view all books
+  * User can tap to edit a book
+  * User can delete a book
+
+- [x] Add/Edit Book
+  * User can enter or edit book details (title, author, pages, current page)
+  * User can save or cancel
+
+- [x] Wishlist
+  * User can view and manage books they wish to read
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Library
+* Wishlist
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] [list first screen here]
-* [list screen navigation here]
-* ...
-- [ ] [list second screen here]
-* [list screen navigation here]
-* ...
+- Library
+  * => Add/Edit Book
+- Wishlist
+  * => Add/Edit Book
 
 ## Wireframes
 
@@ -88,10 +97,18 @@ list second screen here]
 
 ### Models
 
-[Add table of models]
+#### Book
+
+| Property      | Type     | Description                          |
+| ------------- | -------- | ------------------------------------ |
+| id            | String   | Unique identifier for the book       |
+| title         | String   | Title of the book                    |
+| author        | String?  | Author of the book                   |
+| currentPage   | Int?     | Current page the user is on          |
+| numberPages   | Int?     | Total number of pages in the book    |
+| note          | String?  | Optional personal note about the book|
 
 ### Networking
 
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+All data is stored locally using `UserDefaults`.  
+No network requests are implemented yet.
