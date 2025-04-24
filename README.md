@@ -62,8 +62,11 @@ An app to easily catalog personal book collections using ISBN scanning, manage r
   * User can enter or edit book details (title, author, pages, current page)
   * User can save or cancel
 
-- [x] Wishlist
+- [ ] Wishlist
   * User can view and manage books they wish to read
+- [ ] Search
+  * User can search a database of book by using the title of the book 
+    
 
 ### 3. Navigation
 
