@@ -7,27 +7,72 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
-        cell.textLabel?.text = "Book \(indexPath.row + 1)"
-        return cell
-    }
-    
+class ViewController: UIViewController{
 
+    @IBOutlet weak var emptyStateLabel: UILabel!
     @IBOutlet weak var libraryTableView: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        libraryTableView.dataSource = self
-        
-    }
+    
+    var books = [Book]()
+
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         libraryTableView.dataSource = self
+         libraryTableView.delegate = self
+         refreshBooks()
+  
+     }
+
+     override func viewDidAppear(_ animated: Bool) {
+         super.viewDidAppear(animated)
+         refreshBooks()
+     }
+
+     @IBAction func didTapNewBookButton(_ sender: Any) {
+         performSegue(withIdentifier: "ComposeSegue", sender: nil)
+     }
 
 
-}
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "ComposeSegue",
+            let navController = segue.destination as? UINavigationController,
+            let composeVC = navController.topViewController as? BookComposeViewController {
+             composeVC.bookToEdit = sender as? Book
+             composeVC.onComposeBook = { [weak self] book in
+                 print("onComposeBook closure called")
+    
+                 book.save()
+                 self?.refreshBooks()
+             }
+         }
+     }
+
+     private func refreshBooks() {
+         books = Book.getBooks()
+         print("Books retrieved: \(books)") // Debugging log
+         emptyStateLabel.isHidden = !books.isEmpty
+         libraryTableView.reloadData()
+     }
+ }
+
+ extension ViewController: UITableViewDataSource, UITableViewDelegate {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return books.count
+     }
+
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as! BookCell
+         let book = books[indexPath.row]
+         cell.configure(with: book)
+         return cell
+     }
+
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         tableView.deselectRow(at: indexPath, animated: true)
+         let selectedBook = books[indexPath.row]
+         performSegue(withIdentifier: "ComposeSegue", sender: selectedBook)
+     }
+ }
+
+
+
 
