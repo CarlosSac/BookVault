@@ -92,7 +92,7 @@ An app to easily catalog personal book collections using ISBN scanning, manage r
 
 ## Current Build
 
-<img src='demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+<img src='build1-demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
 
 ## Schema 
 
