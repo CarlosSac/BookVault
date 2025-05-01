@@ -21,6 +21,12 @@ class BookCell: UITableViewCell {
         let progress = book.progress
         bookProgressView.setProgress(progress, animated: true)
         bookCoverImageView.image = nil
+        
+        if let url = book.coverURL {
+            Nuke.loadImage(with: url, into: bookCoverImageView)
+        } else {
+            bookCoverImageView.image = UIImage(systemName: "book")
+        }
     }
     
     func configure(with openLibraryBook: OpenLibraryBook) {

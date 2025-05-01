@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class ViewController: UIViewController{
 
@@ -47,8 +48,7 @@ class ViewController: UIViewController{
      }
 
      private func refreshBooks() {
-         books = Book.getBooks()
-         //print("Books retrieved: \(books)")
+         books = Book.getBooks().reversed()
          emptyStateLabel.isHidden = !books.isEmpty
          libraryTableView.reloadData()
      }
@@ -71,6 +71,37 @@ class ViewController: UIViewController{
          let selectedBook = books[indexPath.row]
          performSegue(withIdentifier: "ComposeSegue", sender: selectedBook)
      }
+     
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         if editingStyle == .delete {
+             books.remove(at: indexPath.row)
+             Book.save(books.reversed())
+             tableView.deleteRows(at: [indexPath], with: .automatic)
+            emptyStateLabel.isHidden = !books.isEmpty
+         }
+     }
+     
+
+
+     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (_, _, completionHandler) in
+             let book = self?.books[indexPath.row]
+             self?.performSegue(withIdentifier: "ComposeSegue", sender: book)
+             completionHandler(true)
+         }
+         editAction.backgroundColor = .systemBlue
+         return UISwipeActionsConfiguration(actions: [editAction])
+     }
+
+//     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (_, _, completionHandler) in
+//             let book = self?.books[indexPath.row]
+//             self?.performSegue(withIdentifier: "ComposeSegue", sender: book)
+//             completionHandler(true)
+//         }
+//         editAction.backgroundColor = .systemBlue
+//         return UISwipeActionsConfiguration(actions: [editAction])
+//     }
  }
 
 

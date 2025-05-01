@@ -34,6 +34,14 @@ class DetailBookViewController: UIViewController {
             bookCoverImageView.image = nil
         }
     }
+    @IBAction func didTapAddBookButton(_ sender: Any) {
+        guard let book = book else { return }
+        book.save()
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+
 }
 
 
