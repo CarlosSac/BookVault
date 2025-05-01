@@ -6,22 +6,30 @@
 //
 
 import UIKit
+import Nuke
 
 class BookCell: UITableViewCell {
     
+    @IBOutlet weak var bookCoverImageView: UIImageView!
     @IBOutlet weak var bookProgressView: UIProgressView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
 
     func configure(with book: Book) {
         titleLabel.text = book.title
-        
-        // Display the author's name if available, otherwise show "Unknown Author"
         authorLabel.text = book.author ?? "Unknown Author"
-        
-        // Set the progress on the progress view
         let progress = book.progress
         bookProgressView.setProgress(progress, animated: true)
+        bookCoverImageView.image = nil
     }
+    
+    func configure(with openLibraryBook: OpenLibraryBook) {
+        titleLabel.text = openLibraryBook.title
+        authorLabel.text = openLibraryBook.authorName?.joined(separator: ", ") ?? "Unknown Author"
+        bookProgressView.isHidden = true
+        bookCoverImageView.image = nil
+    }
+    
+
 
 }

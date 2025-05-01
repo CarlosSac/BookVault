@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		81C12BA42DC31E02009D3D12 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 81C12BA32DC31E02009D3D12 /* Nuke */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		815F34F12DB5B019006CE384 /* Book Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C12BA42DC31E02009D3D12 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "Book Vault";
 			packageProductDependencies = (
+				81C12BA32DC31E02009D3D12 /* Nuke */,
 			);
 			productName = "Book Vault";
 			productReference = 815F34F12DB5B019006CE384 /* Book Vault.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 815F34E82DB5B019006CE384;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				81C12BA22DC31E02009D3D12 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 815F34F22DB5B019006CE384 /* Products */;
 			projectDirPath = "";
@@ -335,6 +344,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		81C12BA22DC31E02009D3D12 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		81C12BA32DC31E02009D3D12 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81C12BA22DC31E02009D3D12 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 815F34E92DB5B019006CE384 /* Project object */;
 }

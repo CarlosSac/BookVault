@@ -48,7 +48,7 @@ class ViewController: UIViewController{
 
      private func refreshBooks() {
          books = Book.getBooks()
-         print("Books retrieved: \(books)") // Debugging log
+         //print("Books retrieved: \(books)")
          emptyStateLabel.isHidden = !books.isEmpty
          libraryTableView.reloadData()
      }
