@@ -6,8 +6,8 @@ Original App Design Project
 ## Table of Contents
 
 1. [Overview](#Overview)
-2. [Product Spec](#Product-Spec)
-3. [Current Issues](#Current-Issues)
+2. [Current Issues](#Current-Issues)
+3. [Product Spec](#Product-Spec)
 4. [Wireframes](#Wireframes)
 5. [Schema](#Schema)
 
@@ -16,6 +16,19 @@ Original App Design Project
 ### Description
 
 An app to easily catalog personal book collections using ISBN scanning, manage reading status, and track loans.
+
+## Current Issues
+
+- [ ] Wishlist table view is not implemented yet
+- [ ] Wishlist buttons need to be added
+- [ ] Tapping a book should show a detailed view, not edit
+- [ ] Borrowed books list is not implemented yet
+- [ ] No search or filter functionality for books
+- [ ] No support for custom shelves or categories
+- [ ] No data import/export (e.g., CSV backup)
+- [ ] No error handling for invalid or incomplete book data
+- [ ] No user feedback for successful or failed actions (e.g., save, delete)
+- [ ] No onboarding or help for new users
 
 ### App Evaluation
 
@@ -83,18 +96,7 @@ An app to easily catalog personal book collections using ISBN scanning, manage r
 - Wishlist
   * => Add/Edit Book
 
-## Current Issues
 
-- [ ] Wishlist table view is not implemented yet
-- [ ] Wishlist buttons need to be added
-- [ ] Tapping a book should show a detailed view, not edit
-- [ ] Borrowed books list is not implemented yet
-- [ ] No search or filter functionality for books
-- [ ] No support for custom shelves or categories
-- [ ] No data import/export (e.g., CSV backup)
-- [ ] No error handling for invalid or incomplete book data
-- [ ] No user feedback for successful or failed actions (e.g., save, delete)
-- [ ] No onboarding or help for new users
 
 ## Wireframes
 
