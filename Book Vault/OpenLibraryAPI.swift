@@ -13,6 +13,7 @@ struct OpenLibraryBook: Decodable {
     let coverId: Int?
     let firstPublishYear: Int?
     let subjects: [String]?
+    let editionCount: Int?
     
     var coverURL: URL? {
         guard let coverId = coverId else { return nil }
@@ -24,6 +25,7 @@ struct OpenLibraryBook: Decodable {
         case coverId = "cover_i"
         case firstPublishYear = "first_publish_year"
         case subjects
+        case editionCount = "edition_count"
     }
 }
 

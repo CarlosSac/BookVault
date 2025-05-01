@@ -13,6 +13,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var searchTitle: String?
     var searchAuthor: String?
     var books: [OpenLibraryBook] = []
+    var book: Book?
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -37,8 +38,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         print("TableView will display \(books.count) rows")
         return books.count
     }
-
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as! BookCell
@@ -52,6 +51,29 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailSegue",
+           let detailVC = segue.destination as? DetailBookViewController,
+           let indexPath = tableView.indexPathForSelectedRow {
+            let openLibraryBook = books[indexPath.row]
+            let book = Book(
+                title: openLibraryBook.title,
+                author: openLibraryBook.authorName?.joined(separator: ", "),
+                currentPage: nil,
+                numberPages: nil,
+                note: openLibraryBook.subjects?.joined(separator: ", "),
+                firstPublishYear: openLibraryBook.firstPublishYear,
+                subjects: openLibraryBook.subjects,
+                coverId: openLibraryBook.coverId,
+                editionCount: openLibraryBook.editionCount
+            )
+            detailVC.book = book
+        }
     }
 
     

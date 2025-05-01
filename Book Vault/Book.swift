@@ -7,31 +7,47 @@
 
 import UIKit
 
-// The Book model
+
 struct Book: Codable {
 
-    // The book's title
-    var title: String
 
-    // Optional properties for additional book details
+    var title: String
     var author: String?
     var currentPage: Int?
     var numberPages: Int?
-
-    // A note about the book
     var note: String?
-
-    // A unique identifier for the book
+    var firstPublishYear: Int?
+    var subjects: [String]?
+    var coverId: Int?
+    var editionCount: Int?
     var id: String = UUID().uuidString
+    
+    var coverURL: URL? {
+        guard let coverId = coverId else { return nil }
+        return URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-L.jpg")
+    }
 
     // Initialize a new book
-    init(title: String, author: String? = nil, currentPage: Int? = nil, numberPages: Int? = nil, note: String? = nil) {
+    init(
+        title: String,
+        author: String? = nil,
+        currentPage: Int? = nil,
+        numberPages: Int? = nil,
+        note: String? = nil,
+        firstPublishYear: Int? = nil,
+        subjects: [String]? = nil,
+        coverId: Int? = nil,
+        editionCount: Int? = nil
+    ) {
         self.title = title
         self.author = author
         self.currentPage = currentPage
         self.numberPages = numberPages
         self.note = note
-  
+        self.firstPublishYear = firstPublishYear
+        self.subjects = subjects
+        self.coverId = coverId
+        self.editionCount = editionCount
     }
     
     var progress: Float {
