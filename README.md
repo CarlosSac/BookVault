@@ -106,9 +106,15 @@ An app to easily catalog personal book collections using ISBN scanning, manage r
 <img src="wireframes/wireframe-addbook.png" width=600>
 <img src="wireframes/wireframe-borrow.png" width=600>
 
-## Current Build
+## Builds
 
+### Latest Build 
+<img src='latestbuild-demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+
+### Previous Builds
 <img src='build1-demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+
+
 
 ## Schema 
 
