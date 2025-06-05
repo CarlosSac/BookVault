@@ -22,13 +22,13 @@ class BookComposeViewController: UIViewController, UITextFieldDelegate {
        override func viewDidLoad() {
            super.viewDidLoad()
            pageNumberTextField.delegate = self
-           currentPageTextField.delegate = self
+           //currentPageTextField.delegate = self
 
            if let book = bookToEdit {
                titleTextField.text = book.title
                authorTextField.text = book.author
                currentPageTextField.text = book.currentPage?.description
-               pageNumberTextField.text = book.numberPages?.description
+               //pageNumberTextField.text = book.numberPages?.description
                self.title = "Edit Book"
            }
        }

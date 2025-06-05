@@ -18,8 +18,8 @@ class BookCell: UITableViewCell {
     func configure(with book: Book) {
         titleLabel.text = book.title
         authorLabel.text = book.author ?? "Unknown Author"
-        let progress = book.progress
-        bookProgressView.setProgress(progress, animated: true)
+        //let progress = book.progress
+        //bookProgressView.setProgress(progress, animated: true)
         bookCoverImageView.image = nil
         
         if let url = book.coverURL {

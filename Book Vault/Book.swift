@@ -41,7 +41,7 @@ struct Book: Codable {
     ) {
         self.title = title
         self.author = author
-        self.currentPage = currentPage
+        //self.currentPage = currentPage
         self.numberPages = numberPages
         self.note = note
         self.firstPublishYear = firstPublishYear
@@ -49,13 +49,13 @@ struct Book: Codable {
         self.coverId = coverId
         self.editionCount = editionCount
     }
-    
-    var progress: Float {
-        guard let currentPage = currentPage, let numberPages = numberPages, numberPages > 0 else {
-            return 0.0
-        }
-        return Float(currentPage) / Float(numberPages)
-    }
+//    
+//    var progress: Float {
+//        guard let currentPage = currentPage, let numberPages = numberPages, numberPages > 0 else {
+//            return 0.0
+//        }
+//        return Float(currentPage) / Float(numberPages)
+//    }
 }
 
 // MARK: - Book + UserDefaults
